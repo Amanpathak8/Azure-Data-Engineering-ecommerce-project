@@ -40,7 +40,7 @@ The goal of this project is to demonstrate how to **ingest, clean, transform, an
 
 ## 🧩 Data Ingestion to SQL & NoSQL (Using Filess.io)
 
-The notebook [`DataIngestionToDB.ipynb`](./DataIngestionToDB.ipynb) handles **data ingestion from CSV files into MySQL (Filess.io)** and optionally into **NoSQL databases** like Cosmos DB.
+The notebook [`DataIngestionToDB.ipynb`]([./DataIngestionToDB.ipynb](https://github.com/Amanpathak8/Azure-Data-Engineering-ecommerce-project/tree/main/codes)) handles **data ingestion from CSV files into MySQL (Filess.io)** and optionally into **NoSQL databases** like Cosmos DB.
 
 ### 🧠 Process Flow:
 1. Connect to **MySQL server on Filess.io**
