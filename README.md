@@ -128,12 +128,9 @@ pip install mysql-connector-python pandas pymongo
 
 ---
 
-## 👩‍💻 Author  
+##  Author  
 **Aman Pathak**  
 GitHub: [Amanpathak8](https://github.com/Amanpathak8)
 
 ---
 
-## 📄 License  
-This project is released under the **MIT License**.  
-See the `LICENSE` file for more details.
