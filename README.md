@@ -105,3 +105,121 @@ finally:
     if connection.is_connected():
         connection.close()
         print("🔒 MySQL connection is closed")
+
+from pymongo import MongoClient
+import pandas as pd
+
+client = MongoClient("mongodb+srv://<username>:<password>@cluster.mongodb.net/")
+db = client["ecommerce"]
+collection = db["order_reviews"]
+
+df = pd.read_csv("olist_order_reviews_dataset.csv")
+records = df.to_dict(orient='records')
+collection.insert_many(records)
+
+print("✅ Data inserted into MongoDB successfully!")
+🌐 Ingestion from GitHub (HTTP Connector in Azure Data Factory)
+Created a Linked Service (HTTP) in ADF connected to your GitHub repo.
+
+Imported 7 remaining CSV files directly using the HTTP dataset path.
+
+Pipeline activities:
+
+Copy activity: pulls CSV → stores into Azure Data Lake (Bronze container).
+
+Mapping Data Flow: cleans and transforms → writes into Silver container.
+
+Sink activity: pushes aggregated tables → Gold container → Azure Synapse.
+
+🏗 Azure Services Used
+Layer	Service	Purpose
+Bronze	Azure Data Lake Storage (ADLS Gen2)	Raw data storage
+Silver	Azure Data Factory / Databricks	Data cleaning and transformation
+Gold	Azure Synapse Analytics	Final reporting and analytics
+Ingestion	Filess.io (MySQL), MongoDB, GitHub (HTTP)	Source systems
+Visualization	Power BI / Synapse Studio	Data dashboards
+Management	Azure Key Vault / Monitor	Security and monitoring
+
+See also:
+
+Architecture Diagram.png
+
+Data Pipeline.png
+
+Layers.png
+
+Linked service.png
+
+nosql-sqldb.png
+
+🚀 How to Run the Project
+Clone the repository
+
+bash
+Copy code
+git clone https://github.com/Amanpathak8/Azure-Data-Engineering-ecommerce-project.git
+cd Azure-Data-Engineering-ecommerce-project
+Install required libraries
+
+bash
+Copy code
+pip install mysql-connector-python pandas pymongo
+Update credentials
+
+Filess.io MySQL credentials
+
+MongoDB connection string
+
+GitHub repo HTTP path in ADF
+
+Run ingestion notebook
+
+Execute DataIngestionToDB.ipynb for SQL & MongoDB ingestion
+
+Use ADF pipeline for HTTP-based ingestion
+
+Data Processing in Azure
+
+Bronze → Silver → Gold transformation
+
+Query Gold layer via Azure Synapse Analytics
+
+Visualize
+
+Connect Power BI or Synapse Studio for dashboarding
+
+📊 Business Insights Enabled
+Total orders, payments, and delivery metrics
+
+Product performance by category
+
+Customer segmentation and retention rates
+
+Payment method distribution
+
+Sales and revenue forecasting
+
+📌 Future Enhancements
+Add streaming ingestion via Azure Event Hub
+
+Implement real-time dashboards with Power BI DirectQuery
+
+Introduce data governance using Azure Purview
+
+Add machine learning models for recommendations and churn prediction
+
+👩‍💻 Author
+Aman Pathak
+GitHub: Amanpathak8
+
+📄 License
+This project is released under the MIT License.
+See the LICENSE file for more details.
+
+yaml
+Copy code
+
+---
+
+Would you like me to add a **“Dataset Overview”** section at the end (brief description of all 9 files — which one in SQL, which in MongoDB, which 7 from GitHub)?  
+That makes your README look even more complete and helps people understand the data flow in
